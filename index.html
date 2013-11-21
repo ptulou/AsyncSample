@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Cats and Dogs Async Demo</title>
+    <link href="main.css" rel="stylesheet">
+
+    <script src="jquery-2.0.3.min.js"></script>
+    <script src="underscore.js"></script>
+    <script src="knockout-3.0.0.min.js"></script>
+    <script src="viewmodel.js"></script>
+
+    <script>
+        $(function () {
+            'use strict';
+
+            var viewmodel = new ViewModel();
+
+            ko.applyBindings(viewmodel);
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <label>Cats</label>
+        <button data-bind="click: goodCatsClick">Good</button>
+        <button data-bind="click: badCatsClick">Bad</button>
+        <label data-bind="text: catsResolvedStatus"></label>
+    </div>
+    <div>
+        <label>Dogs</label>
+        <button data-bind="click: goodDogsClick">Good</button>
+        <button data-bind="click: badDogsClick">Bad</button>
+        <label data-bind="text: dogsResolvedStatus"></label>
+    </div>
+    <button data-bind="click: readyClick">Food time!</button>
+    <br/>
+    <img height="268" width="400" data-bind="attr: { 'src': imgUrl }, visible: imgUrl" />
+    <br/>
+    <button data-bind="click:reset">Reset</button>
+</body>
+</html>
